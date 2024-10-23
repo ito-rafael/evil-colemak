@@ -102,7 +102,7 @@ rotated; see evil-colemak-basics-rotate-t-f-j."
     ;; join lines
     (evil-define-key '(normal visual) keymap
       "J"  'evil-join
-      "gJ" 'evil-join-whitespace
+      "gJ" 'evil-join-whitespace)
 
     ;; insert state
     (evil-define-key 'normal keymap
@@ -140,6 +140,8 @@ rotated; see evil-colemak-basics-rotate-t-f-j."
     ;   ((eq evil-colemak-basics-char-jump-commands 'evil-snipe)
     ;    ;; XXX https://github.com/hlissner/evil-snipe/issues/46
     ;   (t (user-error "Invalid evil-colemak-basics-char-jump-commands configuration"))))
+
+    ;; Colemak-DH mod
     ;(when (eq evil-colemak-basics-layout-mod 'mod-dh)
     ;  (evil-define-key '(motion normal visual) keymap
     ;    "m" 'evil-backward-char)
@@ -156,7 +158,8 @@ rotated; see evil-colemak-basics-rotate-t-f-j."
     ;    "$"  'evil-end-of-visual-line
     ;    "g$" 'evil-end-of-line
     ;    "V"  'evil-visual-screen-line))
-    ;keymap))
+
+    keymap))
 
 (defvar evil-colemak-basics-keymap
   (evil-colemak-basics--make-keymap)
