@@ -117,10 +117,10 @@ rotated; see evil-colemak-basics-rotate-t-f-j."
       "i"  'evil-forward-char)
     (when evil-colemak-basics-rotate-t-f-j
       (evil-define-key '(motion normal visual) keymap
-        "f"  'evil-forward-word-end
-        "F"  'evil-forward-WORD-end
-        "gf" 'evil-backward-word-end
-        "gF" 'evil-backward-WORD-end)
+        "l"  'evil-forward-word-end
+        "L"  'evil-forward-WORD-end
+        "gl" 'evil-backward-word-end
+        "gL" 'evil-backward-WORD-end)
       (evil-define-key 'normal keymap
         "gt" 'find-file-at-point
         "gT" 'evil-find-file-at-point-with-line)
