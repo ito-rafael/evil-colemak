@@ -99,17 +99,12 @@ rotated; see evil-colemak-basics-rotate-t-f-j."
     (evil-define-key '(normal visual) keymap
       "N"  'evil-join
       "gN" 'evil-join-whitespace
-      "gl" 'evil-downcase
-      "gL" 'evil-upcase)
     (evil-define-key 'normal keymap
-      "l"  'evil-undo
       "s"  'evil-insert
       "S"  'evil-insert-line
       "gu" 'evil-insert-resume
       "gU" 'evil-insert-0-line)
     (evil-define-key 'visual keymap
-      "l"  'evil-downcase
-      "L"  'evil-upcase
       "U"  'evil-insert)
     (evil-define-key '(visual operator) keymap
       "u"  evil-inner-text-objects-map)
