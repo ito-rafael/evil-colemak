@@ -97,8 +97,8 @@ rotated; see evil-colemak-basics-rotate-t-f-j."
       "gk" 'evil-next-match
       "gK" 'evil-previous-match)
     (evil-define-key '(normal visual) keymap
-      "N"  'evil-join
-      "gN" 'evil-join-whitespace
+      "J"  'evil-join
+      "gJ" 'evil-join-whitespace
     (evil-define-key 'normal keymap
       "s"  'evil-insert
       "S"  'evil-insert-line
