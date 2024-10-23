@@ -78,6 +78,10 @@ rotated; see evil-colemak-basics-rotate-t-f-j."
       "e"  'evil-next-line
       "i"  'evil-previous-line
       "o"  'evil-forward-char
+      ;; new line
+      "h"  'evil-open-below
+      "H"  'evil-open-above
+
       "gn" 'evil-next-visual-line
       "E"  'evil-lookup
       "ge" 'evil-previous-visual-line
