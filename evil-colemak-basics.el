@@ -73,13 +73,15 @@ rotated; see evil-colemak-basics-rotate-t-f-j."
   "Initialise the keymap based on the current configuration."
   (let ((keymap (make-sparse-keymap)))
     (evil-define-key '(motion normal visual) keymap
-      "n"  'evil-next-line
+      ;; navigation
+      "n"  'evil-backward-char
+      "e"  'evil-next-line
+      "i"  'evil-previous-line
+      "o"  'evil-forward-char
       "gn" 'evil-next-visual-line
-      "e"  'evil-previous-line
       "E"  'evil-lookup
       "ge" 'evil-previous-visual-line
-      "i"  'evil-forward-char
-      "I"  'evil-window-bottom
+      ;"I"  'evil-window-bottom
       "zi" 'evil-scroll-column-right
       "zI" 'evil-scroll-right
       "j"  'evil-forward-word-end
