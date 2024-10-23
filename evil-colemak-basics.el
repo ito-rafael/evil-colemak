@@ -108,14 +108,14 @@ rotated; see evil-colemak-basics-rotate-t-f-j."
     (evil-define-key 'normal keymap
       "s"  'evil-insert
       "S"  'evil-insert-line
-      "gu" 'evil-insert-resume
-      "gU" 'evil-insert-0-line)
+      "gs" 'evil-insert-resume
+      "gS" 'evil-insert-0-line)
     (evil-define-key 'visual keymap
       "S"  'evil-insert)
 
     ;; operator
     (evil-define-key '(visual operator) keymap
-      "u"  evil-inner-text-objects-map)
+      "s"  evil-inner-text-objects-map)
     (evil-define-key 'operator keymap
       "i"  'evil-forward-char)
     (when evil-colemak-basics-rotate-t-f-j
