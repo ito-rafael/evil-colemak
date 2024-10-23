@@ -118,45 +118,45 @@ rotated; see evil-colemak-basics-rotate-t-f-j."
       "s"  evil-inner-text-objects-map)
     (evil-define-key 'operator keymap
       "i"  'evil-forward-char)
-    (when evil-colemak-basics-rotate-t-f-j
-      (evil-define-key '(motion normal visual) keymap
-        "l"  'evil-forward-word-end
-        "L"  'evil-forward-WORD-end
-        "gl" 'evil-backward-word-end
-        "gL" 'evil-backward-WORD-end)
-      (evil-define-key 'normal keymap
-        "gt" 'find-file-at-point
-        "gT" 'evil-find-file-at-point-with-line)
-      (evil-define-key 'visual keymap
-        "gt" 'evil-find-file-at-point-visual)
-      (when (featurep 'tab-bar)  ; Evil also checks this; see evil-maps.el
-        (evil-define-key 'normal keymap
-          "ge" 'tab-bar-switch-to-next-tab
-          "gE" 'tab-bar-switch-to-prev-tab))
-      (cond
-       ((eq evil-colemak-basics-char-jump-commands nil)
-       ((eq evil-colemak-basics-char-jump-commands 'evil-snipe)
-        ;; XXX https://github.com/hlissner/evil-snipe/issues/46
-       (t (user-error "Invalid evil-colemak-basics-char-jump-commands configuration"))))
-    (when (eq evil-colemak-basics-layout-mod 'mod-dh)
-      (evil-define-key '(motion normal visual) keymap
-        "m" 'evil-backward-char)
-      (evil-define-key '(normal visual) keymap
-        "h" 'evil-set-marker))
-    (when evil-respect-visual-line-mode
-      (evil-define-key '(motion normal visual) keymap
-        "e"  'evil-next-visual-line
-        "ge" 'evil-next-line
-        "i"  'evil-previous-visual-line
-        "gi" 'evil-previous-line
-        "0"  'evil-beginning-of-visual-line
-        "g0" 'evil-beginning-of-line
-        "$"  'evil-end-of-visual-line
-        "g$" 'evil-end-of-line
-        "V"  'evil-visual-screen-line))
-    keymap))
 
-    ;; rotate tfj
+    ;; t-f-j rotation
+    ;(when evil-colemak-basics-rotate-t-f-j
+    ;  (evil-define-key '(motion normal visual) keymap
+    ;    "l"  'evil-forward-word-end
+    ;    "L"  'evil-forward-WORD-end
+    ;    "gl" 'evil-backward-word-end
+    ;    "gL" 'evil-backward-WORD-end)
+    ;  (evil-define-key 'normal keymap
+    ;    "gt" 'find-file-at-point
+    ;    "gT" 'evil-find-file-at-point-with-line)
+    ;  (evil-define-key 'visual keymap
+    ;    "gt" 'evil-find-file-at-point-visual)
+    ;  (when (featurep 'tab-bar)  ; Evil also checks this; see evil-maps.el
+    ;    (evil-define-key 'normal keymap
+    ;      "ge" 'tab-bar-switch-to-next-tab
+    ;      "gE" 'tab-bar-switch-to-prev-tab))
+    ;  (cond
+    ;   ((eq evil-colemak-basics-char-jump-commands nil)
+    ;   ((eq evil-colemak-basics-char-jump-commands 'evil-snipe)
+    ;    ;; XXX https://github.com/hlissner/evil-snipe/issues/46
+    ;   (t (user-error "Invalid evil-colemak-basics-char-jump-commands configuration"))))
+    ;(when (eq evil-colemak-basics-layout-mod 'mod-dh)
+    ;  (evil-define-key '(motion normal visual) keymap
+    ;    "m" 'evil-backward-char)
+    ;  (evil-define-key '(normal visual) keymap
+    ;    "h" 'evil-set-marker))
+    ;(when evil-respect-visual-line-mode
+    ;  (evil-define-key '(motion normal visual) keymap
+    ;    "e"  'evil-next-visual-line
+    ;    "ge" 'evil-next-line
+    ;    "i"  'evil-previous-visual-line
+    ;    "gi" 'evil-previous-line
+    ;    "0"  'evil-beginning-of-visual-line
+    ;    "g0" 'evil-beginning-of-line
+    ;    "$"  'evil-end-of-visual-line
+    ;    "g$" 'evil-end-of-line
+    ;    "V"  'evil-visual-screen-line))
+    ;keymap))
 
 (defvar evil-colemak-basics-keymap
   (evil-colemak-basics--make-keymap)
