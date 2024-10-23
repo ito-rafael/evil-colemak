@@ -105,7 +105,7 @@ rotated; see evil-colemak-basics-rotate-t-f-j."
       "gu" 'evil-insert-resume
       "gU" 'evil-insert-0-line)
     (evil-define-key 'visual keymap
-      "U"  'evil-insert)
+      "S"  'evil-insert)
     (evil-define-key '(visual operator) keymap
       "u"  evil-inner-text-objects-map)
     (evil-define-key 'operator keymap
