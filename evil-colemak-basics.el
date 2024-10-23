@@ -81,24 +81,30 @@ rotated; see evil-colemak-basics-rotate-t-f-j."
       ;; new line
       "h"  'evil-open-below
       "H"  'evil-open-above
-
-      "gn" 'evil-next-visual-line
-      "E"  'evil-lookup
-      "ge" 'evil-previous-visual-line
-      ;"I"  'evil-window-bottom
-      "zi" 'evil-scroll-column-right
-      "zI" 'evil-scroll-right
-      "j"  'evil-forward-word-end
-      "J"  'evil-forward-WORD-end
-      "gj" 'evil-backward-word-end
-      "gJ" 'evil-backward-WORD-end
+      ;; next/previous matches
       "k" (if (eq evil-search-module 'evil-search) 'evil-ex-search-next 'evil-search-next)
       "K" (if (eq evil-search-module 'evil-search) 'evil-ex-search-previous 'evil-search-previous)
       "gk" 'evil-next-match
       "gK" 'evil-previous-match)
+
+      ;; not used
+      ;"ge" 'evil-next-visual-line
+      ;"E"  'evil-lookup
+      ;"gi" 'evil-previous-visual-line
+      ;"I"  'evil-window-bottom
+      ;"zi" 'evil-scroll-column-right
+      ;"zI" 'evil-scroll-right
+      ;"j"  'evil-forward-word-end
+      ;"J"  'evil-forward-WORD-end
+      ;"gj" 'evil-backward-word-end
+      ;"gJ" 'evil-backward-WORD-end
+
+    ;; join lines
     (evil-define-key '(normal visual) keymap
       "J"  'evil-join
       "gJ" 'evil-join-whitespace
+
+    ;; insert state
     (evil-define-key 'normal keymap
       "s"  'evil-insert
       "S"  'evil-insert-line
@@ -106,6 +112,8 @@ rotated; see evil-colemak-basics-rotate-t-f-j."
       "gU" 'evil-insert-0-line)
     (evil-define-key 'visual keymap
       "S"  'evil-insert)
+
+    ;; operator
     (evil-define-key '(visual operator) keymap
       "u"  evil-inner-text-objects-map)
     (evil-define-key 'operator keymap
@@ -147,6 +155,8 @@ rotated; see evil-colemak-basics-rotate-t-f-j."
         "g$" 'evil-end-of-line
         "V"  'evil-visual-screen-line))
     keymap))
+
+    ;; rotate tfj
 
 (defvar evil-colemak-basics-keymap
   (evil-colemak-basics--make-keymap)
