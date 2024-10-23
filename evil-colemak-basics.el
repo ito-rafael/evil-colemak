@@ -73,17 +73,17 @@ rotated; see evil-colemak-basics-rotate-t-f-j."
   "Initialise the keymap based on the current configuration."
   (let ((keymap (make-sparse-keymap)))
     (evil-define-key '(motion normal visual) keymap
-      "n" 'evil-next-line
+      "n"  'evil-next-line
       "gn" 'evil-next-visual-line
-      "e" 'evil-previous-line
-      "E" 'evil-lookup
+      "e"  'evil-previous-line
+      "E"  'evil-lookup
       "ge" 'evil-previous-visual-line
-      "i" 'evil-forward-char
-      "I" 'evil-window-bottom
+      "i"  'evil-forward-char
+      "I"  'evil-window-bottom
       "zi" 'evil-scroll-column-right
       "zI" 'evil-scroll-right
-      "j" 'evil-forward-word-end
-      "J" 'evil-forward-WORD-end
+      "j"  'evil-forward-word-end
+      "J"  'evil-forward-WORD-end
       "gj" 'evil-backward-word-end
       "gJ" 'evil-backward-WORD-end
       "k" (if (eq evil-search-module 'evil-search) 'evil-ex-search-next 'evil-search-next)
@@ -91,28 +91,28 @@ rotated; see evil-colemak-basics-rotate-t-f-j."
       "gk" 'evil-next-match
       "gK" 'evil-previous-match)
     (evil-define-key '(normal visual) keymap
-      "N" 'evil-join
+      "N"  'evil-join
       "gN" 'evil-join-whitespace
       "gl" 'evil-downcase
       "gL" 'evil-upcase)
     (evil-define-key 'normal keymap
-      "l" 'evil-undo
-      "u" 'evil-insert
-      "U" 'evil-insert-line
+      "l"  'evil-undo
+      "u"  'evil-insert
+      "U"  'evil-insert-line
       "gu" 'evil-insert-resume
       "gU" 'evil-insert-0-line)
     (evil-define-key 'visual keymap
-      "l" 'evil-downcase
-      "L" 'evil-upcase
-      "U" 'evil-insert)
+      "l"  'evil-downcase
+      "L"  'evil-upcase
+      "U"  'evil-insert)
     (evil-define-key '(visual operator) keymap
-      "u" evil-inner-text-objects-map)
+      "u"  evil-inner-text-objects-map)
     (evil-define-key 'operator keymap
-      "i" 'evil-forward-char)
+      "i"  'evil-forward-char)
     (when evil-colemak-basics-rotate-t-f-j
       (evil-define-key '(motion normal visual) keymap
-        "f" 'evil-forward-word-end
-        "F" 'evil-forward-WORD-end
+        "f"  'evil-forward-word-end
+        "F"  'evil-forward-WORD-end
         "gf" 'evil-backward-word-end
         "gF" 'evil-backward-WORD-end)
       (evil-define-key 'normal keymap
@@ -152,15 +152,15 @@ rotated; see evil-colemak-basics-rotate-t-f-j."
         "h" 'evil-set-marker))
     (when evil-respect-visual-line-mode
       (evil-define-key '(motion normal visual) keymap
-        "n" 'evil-next-visual-line
+        "n"  'evil-next-visual-line
         "gn" 'evil-next-line
-        "e" 'evil-previous-visual-line
+        "e"  'evil-previous-visual-line
         "ge" 'evil-previous-line
-        "0" 'evil-beginning-of-visual-line
+        "0"  'evil-beginning-of-visual-line
         "g0" 'evil-beginning-of-line
-        "$" 'evil-end-of-visual-line
+        "$"  'evil-end-of-visual-line
         "g$" 'evil-end-of-line
-        "V" 'evil-visual-screen-line))
+        "V"  'evil-visual-screen-line))
     keymap))
 
 (defvar evil-colemak-basics-keymap
