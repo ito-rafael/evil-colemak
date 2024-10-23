@@ -127,24 +127,8 @@ rotated; see evil-colemak-basics-rotate-t-f-j."
           "gE" 'tab-bar-switch-to-prev-tab))
       (cond
        ((eq evil-colemak-basics-char-jump-commands nil)
-        (evil-define-key '(motion normal visual) keymap
-          "t" 'evil-find-char
-          "T" 'evil-find-char-backward
-          "j" 'evil-find-char-to
-          "J" 'evil-find-char-to-backward))
        ((eq evil-colemak-basics-char-jump-commands 'evil-snipe)
         ;; XXX https://github.com/hlissner/evil-snipe/issues/46
-        (evil-snipe-def 1 'inclusive "t" "T"
-                        :forward-fn evil-colemak-basics-snipe-t
-                        :backward-fn evil-colemak-basics-snipe-T)
-        (evil-snipe-def 1 'exclusive "j" "J"
-                        :forward-fn evil-colemak-basics-snipe-j
-                        :backward-fn evil-colemak-basics-snipe-J)
-        (evil-define-key '(motion normal visual) keymap
-          "t" 'evil-colemak-basics-snipe-t
-          "T" 'evil-colemak-basics-snipe-T
-          "j" 'evil-colemak-basics-snipe-j
-          "J" 'evil-colemak-basics-snipe-J))
        (t (user-error "Invalid evil-colemak-basics-char-jump-commands configuration"))))
     (when (eq evil-colemak-basics-layout-mod 'mod-dh)
       (evil-define-key '(motion normal visual) keymap
