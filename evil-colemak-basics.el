@@ -73,19 +73,28 @@ rotated; see evil-colemak-basics-rotate-t-f-j."
   "Initialise the keymap based on the current configuration."
   (let ((keymap (make-sparse-keymap)))
     (evil-define-key '(motion normal visual) keymap
+
       ;; navigation
       "n"  'evil-backward-char
       "e"  'evil-next-line
       "i"  'evil-previous-line
       "o"  'evil-forward-char
+
       ;; new line
       "h"  'evil-open-below
       "H"  'evil-open-above
+
       ;; next/previous matches
       "k" (if (eq evil-search-module 'evil-search) 'evil-ex-search-next 'evil-search-next)
       "K" (if (eq evil-search-module 'evil-search) 'evil-ex-search-previous 'evil-search-previous)
       "gk" 'evil-next-match
       "gK" 'evil-previous-match)
+
+      ;; end of word
+      "l"  'evil-forward-word-end
+      "L"  'evil-forward-WORD-end
+      "gl" 'evil-backward-word-end
+      "gL" 'evil-backward-WORD-end
 
       ;; not used
       ;"ge" 'evil-next-visual-line
@@ -94,10 +103,6 @@ rotated; see evil-colemak-basics-rotate-t-f-j."
       ;"I"  'evil-window-bottom
       ;"zi" 'evil-scroll-column-right
       ;"zI" 'evil-scroll-right
-      ;"j"  'evil-forward-word-end
-      ;"J"  'evil-forward-WORD-end
-      ;"gj" 'evil-backward-word-end
-      ;"gJ" 'evil-backward-WORD-end
 
     ;; join lines
     (evil-define-key '(normal visual) keymap
