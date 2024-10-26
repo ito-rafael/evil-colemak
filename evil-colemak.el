@@ -1,4 +1,4 @@
-;;; evil-colemak-basics.el --- Basic Colemak key bindings for evil-mode
+;;; evil-colemak.el --- Basic Colemak key bindings for evil-mode
 
 ;; Author: Wouter Bolsterlee <wouter@bolsterl.ee>
 ;; Version: 2.2.1
@@ -19,43 +19,43 @@
 ;;
 ;; To enable globally, use:
 ;;
-;;   (global-evil-colemak-basics-mode)
+;;   (global-evil-colemak-mode)
 ;;
 ;; To enable for just a single buffer, use:
 ;;
-;;   (evil-colemak-basics-mode)
+;;   (evil-colemak-mode)
 
 ;;; Code:
 
 (require 'evil)
 (require 'evil-snipe)
 
-(defgroup evil-colemak-basics nil
+(defgroup evil-colemak nil
   "Basic key rebindings for evil-mode with the Colemak keyboard layout."
-  :prefix "evil-colemak-basics-"
+  :prefix "evil-colemak-"
   :group 'evil)
 
-(defcustom evil-colemak-basics-layout-mod nil
+(defcustom evil-colemak-layout-mod nil
   "Which Colemak layout mod to use.
 
 Colemak Mod-DH, also known as Colemak Mod-DHm, has m where the h
 key is on qwerty. This means we need to swap the h and m
 bindings. No other changes are necessary."
-  :group 'evil-colemak-basics
+  :group 'evil-colemak
   :type '(choice (const :tag "default" nil)
                  (const :tag "mod-dh" mod-dh)))
 
-(defcustom evil-colemak-basics-rotate-t-f-j t
+(defcustom evil-colemak-rotate-t-f-j t
   "Whether to keep find-char and end of word jumps at their qwerty position.
 
 When non-nil, this will rotate the t, f, and j keys, so that f
 jumps to the end of the word (qwerty e, same position), t jumps to a
 char (qwerty f, same position), and j jumps until a char (qwerty t,
 different position)."
-  :group 'evil-colemak-basics
+  :group 'evil-colemak
   :type 'boolean)
 
-(defcustom evil-colemak-basics-char-jump-commands nil
+(defcustom evil-colemak-char-jump-commands nil
   "The set of commands to use for jumping to characters.
 
 By default, the built-in evil commands evil-find-char (and
@@ -64,12 +64,12 @@ behaves like evil-snipe-override-mode, but adapted to the right
 keys.
 
 This setting is only used when the character jump commands are
-rotated; see evil-colemak-basics-rotate-t-f-j."
-  :group 'evil-colemak-basics
+rotated; see evil-colemak-rotate-t-f-j."
+  :group 'evil-colemak
   :type '(choice (const :tag "default" nil)
                  (const :tag "evil-snipe" evil-snipe)))
 
-(defun evil-colemak-basics--make-keymap ()
+(defun evil-colemak--make-keymap ()
   "Initialise the keymap based on the current configuration."
   (let ((keymap (make-sparse-keymap)))
     (evil-define-key '(motion normal visual) keymap
@@ -125,7 +125,7 @@ rotated; see evil-colemak-basics-rotate-t-f-j."
       "i"  'evil-forward-char)
 
     ;; t-f-j rotation
-    ;(when evil-colemak-basics-rotate-t-f-j
+    ;(when evil-colemak-rotate-t-f-j
     ;  (evil-define-key '(motion normal visual) keymap
     ;    "l"  'evil-forward-word-end
     ;    "L"  'evil-forward-WORD-end
@@ -141,13 +141,13 @@ rotated; see evil-colemak-basics-rotate-t-f-j."
     ;      "ge" 'tab-bar-switch-to-next-tab
     ;      "gE" 'tab-bar-switch-to-prev-tab))
     ;  (cond
-    ;   ((eq evil-colemak-basics-char-jump-commands nil)
-    ;   ((eq evil-colemak-basics-char-jump-commands 'evil-snipe)
+    ;   ((eq evil-colemak-char-jump-commands nil)
+    ;   ((eq evil-colemak-char-jump-commands 'evil-snipe)
     ;    ;; XXX https://github.com/hlissner/evil-snipe/issues/46
-    ;   (t (user-error "Invalid evil-colemak-basics-char-jump-commands configuration"))))
+    ;   (t (user-error "Invalid evil-colemak-char-jump-commands configuration"))))
 
     ;; Colemak-DH mod
-    ;(when (eq evil-colemak-basics-layout-mod 'mod-dh)
+    ;(when (eq evil-colemak-layout-mod 'mod-dh)
     ;  (evil-define-key '(motion normal visual) keymap
     ;    "m" 'evil-backward-char)
     ;  (evil-define-key '(normal visual) keymap
@@ -166,26 +166,26 @@ rotated; see evil-colemak-basics-rotate-t-f-j."
 
     keymap))
 
-(defvar evil-colemak-basics-keymap
-  (evil-colemak-basics--make-keymap)
-  "Keymap for evil-colemak-basics-mode.")
+(defvar evil-colemak-keymap
+  (evil-colemak--make-keymap)
+  "Keymap for evil-colemak-mode.")
 
-(defun evil-colemak-basics--refresh-keymap ()
+(defun evil-colemak--refresh-keymap ()
   "Refresh the keymap using the current configuration."
-  (setq evil-colemak-basics-keymap (evil-colemak-basics--make-keymap)))
+  (setq evil-colemak-keymap (evil-colemak--make-keymap)))
 
 ;;;###autoload
-(define-minor-mode evil-colemak-basics-mode
+(define-minor-mode evil-colemak-mode
   "Minor mode with evil-mode enhancements for the Colemak keyboard layout."
-  :keymap evil-colemak-basics-keymap
+  :keymap evil-colemak-keymap
   :lighter " hnei")
 
 ;;;###autoload
-(define-globalized-minor-mode global-evil-colemak-basics-mode
-  evil-colemak-basics-mode
-  (lambda () (evil-colemak-basics-mode t))
+(define-globalized-minor-mode global-evil-colemak-mode
+  evil-colemak-mode
+  (lambda () (evil-colemak-mode t))
   "Global minor mode with evil-mode enhancements for the Colemak keyboard layout.")
 
-(provide 'evil-colemak-basics)
+(provide 'evil-colemak)
 
-;;; evil-colemak-basics.el ends here
+;;; evil-colemak.el ends here

@@ -1,5 +1,5 @@
 ======================
-evil-colemak-basics.el
+evil-colemak.el
 ======================
 
 This Emacs package provides basic key bindings for evil-mode_
@@ -348,18 +348,18 @@ With `use-package`, the minimal form looks like like this:
 
 .. code-block:: elisp
 
-  (use-package evil-colemak-basics)
+  (use-package evil-colemak)
 
 Or manually install by running::
 
-  M-x package-install RET evil-colemak-basics RET
+  M-x package-install RET evil-colemak RET
 
 Alternatively, put the Elisp file somewhere in your loading path and
 load it explicitly:
 
 .. code-block:: elisp
 
-  (require 'evil-colemak-basics)
+  (require 'evil-colemak)
 
 Note that this ``(require)`` is not needed when installing from Melpa.
 
@@ -369,20 +369,20 @@ Usage
 
 To enable globally, use::
 
-  M-x global-evil-colemak-basics-mode RET
+  M-x global-evil-colemak-mode RET
 
 To enable for just a single buffer, use::
 
-  M-x evil-colemak-basics-mod RET
+  M-x evil-colemak-mod RET
 
-To enable permanently, call ``(global-evil-colemak-basics-mode)`` from
+To enable permanently, call ``(global-evil-colemak-mode)`` from
 your ``init.el``. With ``use-package`` this looks like this:
 
 .. code-block:: elisp
 
-  (use-package evil-colemak-basics
+  (use-package evil-colemak
     :config
-    (global-evil-colemak-basics-mode))
+    (global-evil-colemak-mode))
 
 When enabled, a lighter showing ``hnei`` will appear in your mode
 line. If you don't like it, use ``rich-minority`` or ``diminish`` to
@@ -399,22 +399,22 @@ Configuration
 Use the customize interface to get more information about the
 settings::
 
-  M-x customize-group RET evil-colemak-basics RET
+  M-x customize-group RET evil-colemak RET
 
 However, since the settings *must* be set before loading the package
 (since they influence how the keymap is constructed), the most
 reliable way is to put ``(setq …)`` in your ``init.el`` file, before
 using ``(require …)`` or invoking any of the autoloaded functions like
-``(global-evil-colemak-basics-mode)``. With ``use-package``, use
+``(global-evil-colemak-mode)``. With ``use-package``, use
 ``:init`` like this:
 
 .. code-block:: elisp
 
-  (use-package evil-colemak-basics
+  (use-package evil-colemak
     :init
-    (setq evil-colemak-basics-... ...)
+    (setq evil-colemak-... ...)
     :config
-    (global-evil-colemak-basics-mode))
+    (global-evil-colemak-mode))
 
 ``t-f-j`` rotation
 ------------------
@@ -423,7 +423,7 @@ The ``t-f-j`` rotation is enabled by default but can be disabled using:
 
 .. code-block:: elisp
 
-  (setq evil-colemak-basics-rotate-t-f-j nil)
+  (setq evil-colemak-rotate-t-f-j nil)
 
 Mod-DH
 ------
@@ -433,7 +433,7 @@ can be enabled with:
 
 .. code-block:: elisp
 
-  (setq evil-colemak-basics-layout-mod 'mod-dh)
+  (setq evil-colemak-layout-mod 'mod-dh)
 
 This will swap the bindings for ``m`` and ``h``, leaving all other
 bindings as is.
@@ -446,7 +446,7 @@ character’ commands, use:
 
 .. code-block:: elisp
 
-  (setq evil-colemak-basics-char-jump-commands 'evil-snipe)
+  (setq evil-colemak-char-jump-commands 'evil-snipe)
 
 .. _evil-snipe: https://github.com/hlissner/evil-snipe
 
@@ -458,12 +458,12 @@ looks like this:
 
 .. code-block:: elisp
 
-  (use-package evil-colemak-basics
+  (use-package evil-colemak
     :after evil evil-snipe
     :init
-    (setq evil-colemak-basics-char-jump-commands 'evil-snipe)
+    (setq evil-colemak-char-jump-commands 'evil-snipe)
     :config
-    (global-evil-colemak-basics-mode))
+    (global-evil-colemak-mode))
 
 visual-line-mode
 ----------------
