@@ -88,13 +88,13 @@ rotated; see evil-colemak-rotate-t-f-j."
       "k" (if (eq evil-search-module 'evil-search) 'evil-ex-search-next 'evil-search-next)
       "K" (if (eq evil-search-module 'evil-search) 'evil-ex-search-previous 'evil-search-previous)
       "gk" 'evil-next-match
-      "gK" 'evil-previous-match)
+      "gK" 'evil-previous-match
 
       ;; end of word
       "l"  'evil-forward-word-end
       "L"  'evil-forward-WORD-end
       "gl" 'evil-backward-word-end
-      "gL" 'evil-backward-WORD-end
+      "gL" 'evil-backward-WORD-end)
 
       ;; not used
       ;"ge" 'evil-next-visual-line
